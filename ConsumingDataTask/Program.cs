@@ -16,15 +16,14 @@ namespace ConsumingDataTask
             Book book1 = new Book("First Heretic",400,"Aaron","Dembski-Bowden");
             Book book2 = new Book("False Gods", 300, "Graham", "McNeill");
 
-            book1.setJSONBookToFile(path+jsonFilePath);
-            Book book11 = new Book().getBookFromJSONFile(path+jsonFilePath);
+            BookSerialization bookSerialization = new BookSerialization(book1);
+            bookSerialization.setJSONBookToFile(path+jsonFilePath);
+            Book book11 = new BookSerialization().getBookFromJSONFile(path + jsonFilePath);
             Console.WriteLine(book11);
             
-            book2.setXMLBookToFile(path+xmlFilePath);  
-            Book book22 = new Book().getBookFromXMLFile(path+xmlFilePath);
+            bookSerialization.setXMLBookToFile(path+xmlFilePath);
+            Book book22 = new BookSerialization().getBookFromXMLFile(path+xmlFilePath);
             Console.WriteLine("\n" + book22);
-            
-            
         }
     }
 }
