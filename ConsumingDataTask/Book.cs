@@ -1,17 +1,20 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
 namespace ConsumingDataTask
 {
+    [DataContract (Namespace = "SampleNamespace")]
+    [Serializable]
     public class Book
     {
-        private string _bookTitle;
-        private int _pagesNumb;
-        private string _authorFirstName;
-        private string _authorLastName;
+        [DataMember] private string _bookTitle;
+        [DataMember] private int _pagesNumb;
+        [DataMember] private string _authorFirstName;
+        [DataMember] private string _authorLastName;
 
         public Book()
         {
